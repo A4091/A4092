@@ -37,25 +37,41 @@ module spirom(
     input SPI_MISO
     );
 
-    localparam  SPI_IDLE    =  2'b00,
-                SPI_N       =  2'b01,
-                SPI_P       =  2'b11,
-                SPI_DTACK   =  2'b10;
+    localparam  SPI_IDLE    =  0,
+                SPI_N       =  1,
+                SPI_P       =  2,
+                SPI_DTACK   =  3;
 
-    (* fsm_encoding = "user" *)reg [1:0] spi_state = SPI_IDLE;
+    (* fsm_encoding = "gray" *)reg [2:0] spi_state = SPI_IDLE;
     reg [5:0] cnt = 40;
     wire [39:0] readcmd;
     reg close = 1;
 
-    assign readcmd = {8'h03, 3'h000, addr[22:2], spi_datain};
+    reg romcycle_sync = 0;
+    reg doe_sync = 0;
+    reg DS_sync = 0;
 
-    always @ (negedge IORST_n, negedge clk) begin
+    assign readcmd = {8'h03, 3'b000, addr[22:2], spi_datain};
+
+    always @ (negedge IORST_n, posedge clk) begin
+        if (!IORST_n) begin
+            romcycle_sync <= 0;
+            doe_sync <= 0;
+            DS_sync <= 0;
+        end else begin
+            romcycle_sync <= romcycle;
+            doe_sync <= DOE;
+            DS_sync <= ~&DS_n;
+        end
+    end
+
+    always @ (negedge IORST_n, posedge clk) begin
         if (!IORST_n) begin
             cnt <= 40;
             spi_read <= 0;
             dtack <= 0;
             SPI_CLK <= 0;
-            SPI_CS_n <= 0;
+            SPI_CS_n <= 1;
             SPI_MOSI <= 0;
             close = 1;
             spi_state <= SPI_IDLE;
@@ -63,61 +79,60 @@ module spirom(
             spi_read <= 0;
             dtack <= 0;
             SPI_CLK <= 0;
-            SPI_MOSI <= 0;
-            if (romcycle) begin
-                close = 1;
-                case (spi_state)
-                SPI_IDLE : begin
+            case (spi_state)
+            SPI_IDLE : begin
+                SPI_MOSI <= 0;
+                if (romcycle_sync && ~&addr[22:3]) begin
+                    SPI_CS_n <= 1;
+                    close = 1;
                     cnt <= 40;
-                    if (&addr[22:3] && ~&DS_n) begin
-                        close = addr[2];
-                        cnt <= 8;
-                        SPI_CS_n <= 0;
-                        spi_state <= SPI_N;
-                    end else if (READ) begin
-                        SPI_CS_n <= 0;
-                        spi_state <= SPI_N;
-                    end else if (romcycle) begin
-                        spi_state <= SPI_DTACK;
-                    end
-                end
-                SPI_N : begin
-                    if (cnt == 0) begin
-                        spi_state <= SPI_DTACK;
-                    end else begin
-                        if (cnt <= 8 && READ) begin
-                            SPI_MOSI <= 0;
-                        end else begin
-                            SPI_MOSI <= readcmd[cnt-1];
-                        end
-                        spi_state <= SPI_P;
-                    end
-                end
-                SPI_P : begin
-                    SPI_CLK <= 1;
-                    if (cnt <= 8 && READ) begin
-                        spi_dataout <= {spi_dataout[6:0], SPI_MISO};
-                    end else begin
-                        spi_dataout <= 0;
-                    end
-                    cnt <= cnt -1;
                     spi_state <= SPI_N;
+                end else if (romcycle_sync && &addr[22:3] && doe_sync && DS_sync) begin
+                    close = addr[2];
+                    cnt <= 8;
+                    spi_state <= SPI_N;
+                end else begin
+                    spi_state <= SPI_IDLE;
                 end
-                SPI_DTACK : begin
-                    SPI_CS_n <= close;
+            end
+            SPI_N : begin
+                SPI_CS_n <= 0;
+                if (cnt == 0) begin
+                    SPI_MOSI <= 0;
+                    spi_read <= READ;
+                    spi_state <= SPI_DTACK;
+                end else begin
+                    if (cnt <= 8 && READ) begin
+                        SPI_MOSI <= 0;
+                    end else begin
+                        SPI_MOSI <= readcmd[cnt-1];
+                    end
+                    spi_state <= SPI_P;
+                end
+            end
+            SPI_P : begin
+                SPI_CLK <= 1;
+                if (cnt <= 8 && READ) begin
+                    spi_dataout <= {spi_dataout[6:0], SPI_MISO};
+                end else begin
+                    spi_dataout <= 0;
+                end
+                cnt <= cnt -1;
+                spi_state <= SPI_N;
+            end
+            SPI_DTACK : begin
+                SPI_CS_n <= close;
+                if (!romcycle_sync) begin
+                    spi_read <= 0;
+                    dtack <= 0;
+                    spi_state <= SPI_IDLE;
+                end else begin
                     spi_read <= READ;
                     dtack <= 1;
                     spi_state <= SPI_DTACK;
                 end
-                endcase
-            end else begin
-                //cancel SPI command if cycle ends before all bits shifted
-                SPI_CS_n <= 1;
-                if (cnt == 0) begin
-                    SPI_CS_n <= close;
-                end
-                spi_state <= SPI_IDLE;
             end
+            endcase
         end
      end
 

@@ -37,16 +37,17 @@ module sidregister(
             sid_read <= 0;
             dtack <= 0;
         end else begin
-            sid_read <= 0;
             dtack <= 0;
-            if (sid_cycle) begin
-                if (DOE && !DS0_n) begin
-                    if (!READ) begin
-                        DOUT <= DIN;
-                    end else begin
-                        sid_read <= 1;
-                    end
+            if (sid_read) begin
+                dtack <= 1;
+            end
+            sid_read <= 0;
+            if (sid_cycle && DOE && !DS0_n) begin
+                if (!READ) begin
+                    DOUT <= DIN;
                     dtack <= 1;
+                end else begin
+                    sid_read <= 1;
                 end
             end
         end

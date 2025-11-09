@@ -92,17 +92,13 @@ module A4092 (
 
     // SCSI ID Register
     output SID_n,       // Buffer Enable if DIP Switch is used
-    output DIP_EXT_TERM,// Termination Enable if NO DIP Switch
-
-    //test
-    output test
+    output DIP_EXT_TERM // Termination Enable if NO DIP Switch
     );
 
     wire slave_sig;
     wire slavecycle;
     wire mastercycle;
     wire dtack_sig;
-    wire nobuscycle;
 
     // Buffercontrol
     wire [1:0] siz_sig;
@@ -164,16 +160,14 @@ module A4092 (
         CLK <= !CLK;
     end
 
-    assign test = spi_read;
-
     // ########################################
     // Zorro signal assignment
     assign CFGOUT_n = (!SENSEZ3 || cfgout) ? 1'bZ : 1;
     assign SLAVE_n = slave_sig ? 0 : 1'bZ;
-    assign DTACK_n = dtack_sig ? 0 : 1'bZ;
+    assign DTACK_n = (dtack_sig && !Z_FCS_n) ? 0 : 1'bZ;
     assign CINH_n = slave_sig ? 0 : 1'bZ;
     assign MTACK_n = slave_sig ? 1 : 1'bZ;
-    assign INT2_n = (int_sig) ? 0 : 1'bZ;
+    assign INT2_n = int_sig ? 0 : 1'bZ;
 
     assign MTCR_n = mybus ? 1 : 1'bZ;
     assign Z_FCS_n = mybus ? !efcs : 1'bZ;
@@ -336,6 +330,7 @@ module A4092 (
 `ifdef USE_SPIROM
 	spirom SPI_ROM (
         .clk (CLK_50M),
+//        .clk (CLK),
         .IORST_n (IORST_n),
         .romcycle (rom_cycle),
 `ifdef A22_21_MISSING
@@ -405,7 +400,7 @@ module A4092 (
 	);
 
     sidregister SID_REGISTER (
-        .clk (CLK),
+        .clk (CLK_50M),
         .sid_cycle (sid_cycle),
         .IORST_n (IORST_n),
         .DOE (DOE),

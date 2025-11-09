@@ -53,7 +53,6 @@ NET "MTCR_n"      LOC = "P48";
 NET "SID_n"       LOC = "P49";
 NET "DIP_EXT_TERM" LOC = "P50";
 # P51 - NC
-NET "test"        LOC = "P52";
 # P52 - NC
 # P53 - NC
 # P54 - NC

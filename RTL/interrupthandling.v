@@ -39,7 +39,8 @@ module interrupthandling(
 );
 
     //########################################
-    localparam DEFAULTVECTOR = 8'd26;     // Level 2 Interrupt Autovector
+//    localparam DEFAULTVECTOR = 8'd26;     // Level 2 Interrupt Autovector
+    localparam DEFAULTVECTOR = 8'd24;     // Spurious interrupt Vector
     //########################################
 
     reg int_sync = 0;
@@ -80,18 +81,22 @@ module interrupthandling(
                 dtack <= 0;
                 slave <= 0;
                 vector_read <= 0;
-            end else if (intreg_cycle && DOE && READ) begin
-                vector_read <= 1;
-                dtack <= 1;
-            end else if (intreg_cycle && DOE && !DS0_n) begin
-                dout_sig <= din;
-                vector_assigned <= set_reset;
-                dtack <= 1;
-            end else if (poll_phase) begin
-                slave <= 1;
-            end else if (vector_phase) begin
-                vector_read <= 1;
-                dtack <= 1;
+            end else begin
+                if (vector_read) begin
+                    dtack <= 1;
+                end
+                if (intreg_cycle && DOE && READ) begin
+                    vector_read <= 1;
+                    dtack <= 1;
+                end else if (intreg_cycle && DOE && !DS0_n) begin
+                    dout_sig <= din;
+                    vector_assigned <= set_reset;
+                    dtack <= 1;
+                end else if (poll_phase) begin
+                    slave <= 1;
+                end else if (vector_phase) begin
+                    vector_read <= 1;
+                end
             end
         end
     end
