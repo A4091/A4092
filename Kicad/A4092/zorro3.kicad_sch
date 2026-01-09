@@ -6,7 +6,8 @@
 	(paper "A3")
 	(title_block
 		(title "A4092")
-		(rev "PROTO0")
+		(date "2026-01-08")
+		(rev "REV C")
 		(company "amiga.technology")
 	)
 	(lib_symbols
@@ -382,297 +383,6 @@
 						)
 					)
 					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Device:C_Small"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.254)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "C"
-				(at 0.254 1.778 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "C_Small"
-				(at 0.254 -2.032 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Unpolarized capacitor, small symbol"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "capacitor cap"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "C_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "C_Small_0_1"
-				(polyline
-					(pts
-						(xy -1.524 0.508) (xy 1.524 0.508)
-					)
-					(stroke
-						(width 0.3048)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 -0.508) (xy 1.524 -0.508)
-					)
-					(stroke
-						(width 0.3302)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "C_Small_1_1"
-				(pin passive line
-					(at 0 2.54 270)
-					(length 2.032)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 2.032)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Device:FerriteBead_Small"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "FB"
-				(at 1.905 1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "FerriteBead_Small"
-				(at 1.905 -1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at -1.778 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Ferrite bead, small symbol"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "L ferrite bead inductor filter"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Inductor_* L_* *Ferrite*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "FerriteBead_Small_0_1"
-				(polyline
-					(pts
-						(xy -1.8288 0.2794) (xy -1.1176 1.4986) (xy 1.8288 -0.2032) (xy 1.1176 -1.4224) (xy -1.8288 0.2794)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0.889) (xy 0 1.2954)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -1.27) (xy 0 -0.7874)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "FerriteBead_Small_1_1"
-				(pin passive line
-					(at 0 2.54 270)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -10780,19 +10490,9 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "Z_DS3 + Z_DS2 have FBs on original\nbut not Z_DS1 and Z_DS0"
-		(exclude_from_sim no)
-		(at 263.906 98.044 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "3522b1a8-c619-4dba-be49-2ab7d640b9f6")
-	)
 	(text "2x Power to the LEDs."
 		(exclude_from_sim no)
-		(at 28.448 218.694 0)
+		(at 27.178 218.694 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10887,7 +10587,7 @@
 		(uuid "0e3fcc29-eb2a-4a0b-b366-f037d8d8d1c0")
 	)
 	(junction
-		(at 259.08 107.95)
+		(at 246.38 109.22)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0eee5bf4-b969-476c-8aa8-0113d48e6ee2")
@@ -10899,13 +10599,13 @@
 		(uuid "1567d1e8-2e14-40b2-b112-42b3bff9c74d")
 	)
 	(junction
-		(at 278.13 107.95)
+		(at 267.97 109.22)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "23547a06-d7c8-4273-b574-c8bdb7d390fd")
 	)
 	(junction
-		(at 273.05 107.95)
+		(at 262.89 109.22)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "32c10fa4-0fd3-498b-ae21-4e682f99af26")
@@ -10923,7 +10623,7 @@
 		(uuid "47676f2e-d41d-460e-a571-db2dc2734607")
 	)
 	(junction
-		(at 254 107.95)
+		(at 241.3 109.22)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4bce6fc6-0761-45f9-9313-09b0429581b7")
@@ -10983,13 +10683,13 @@
 		(uuid "b4b86da9-33d3-4121-b4e4-388b2fd79fee")
 	)
 	(junction
-		(at 275.59 107.95)
+		(at 265.43 109.22)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b894eed9-fff6-464e-bfeb-94a57e74fe19")
 	)
 	(junction
-		(at 256.54 107.95)
+		(at 243.84 109.22)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e25b8934-e479-4a0c-8f2f-77c0f6355019")
@@ -11099,7 +10799,7 @@
 		(uuid "a40a5e29-2e05-4ae7-9b3e-249edb3b639e")
 	)
 	(no_connect
-		(at 260.35 154.94)
+		(at 290.83 109.22)
 		(uuid "b58b9b52-a65b-4473-bd03-45792526197e")
 	)
 	(no_connect
@@ -11115,7 +10815,7 @@
 		(uuid "c03cf121-410a-4553-81a1-1b2ae6f0c4eb")
 	)
 	(no_connect
-		(at 260.35 175.26)
+		(at 290.83 129.54)
 		(uuid "ca72234f-9f16-4b0d-904d-4765bf035274")
 	)
 	(no_connect
@@ -11176,7 +10876,7 @@
 	)
 	(wire
 		(pts
-			(xy 254 107.95) (xy 256.54 107.95)
+			(xy 241.3 109.22) (xy 243.84 109.22)
 		)
 		(stroke
 			(width 0)
@@ -11206,7 +10906,7 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 107.95) (xy 259.08 107.95)
+			(xy 243.84 109.22) (xy 246.38 109.22)
 		)
 		(stroke
 			(width 0)
@@ -11216,7 +10916,7 @@
 	)
 	(wire
 		(pts
-			(xy 273.05 107.95) (xy 275.59 107.95)
+			(xy 262.89 109.22) (xy 265.43 109.22)
 		)
 		(stroke
 			(width 0)
@@ -11226,7 +10926,7 @@
 	)
 	(wire
 		(pts
-			(xy 252.73 107.95) (xy 254 107.95)
+			(xy 240.03 109.22) (xy 241.3 109.22)
 		)
 		(stroke
 			(width 0)
@@ -11246,7 +10946,7 @@
 	)
 	(wire
 		(pts
-			(xy 259.08 107.95) (xy 261.62 107.95)
+			(xy 246.38 109.22) (xy 248.92 109.22)
 		)
 		(stroke
 			(width 0)
@@ -11286,7 +10986,7 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 107.95) (xy 278.13 107.95)
+			(xy 265.43 109.22) (xy 267.97 109.22)
 		)
 		(stroke
 			(width 0)
@@ -11296,7 +10996,7 @@
 	)
 	(wire
 		(pts
-			(xy 254 154.94) (xy 255.27 154.94)
+			(xy 284.48 109.22) (xy 285.75 109.22)
 		)
 		(stroke
 			(width 0)
@@ -11306,7 +11006,7 @@
 	)
 	(wire
 		(pts
-			(xy 278.13 107.95) (xy 280.67 107.95)
+			(xy 267.97 109.22) (xy 270.51 109.22)
 		)
 		(stroke
 			(width 0)
@@ -11346,26 +11046,6 @@
 	)
 	(wire
 		(pts
-			(xy 232.41 80.01) (xy 236.22 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a8aa0430-25e9-4671-aa56-e901b5189fa3")
-	)
-	(wire
-		(pts
-			(xy 226.06 80.01) (xy 227.33 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bdeff794-b978-49ff-a2ca-3a944e3a4145")
-	)
-	(wire
-		(pts
 			(xy 345.44 165.1) (xy 345.44 167.64)
 		)
 		(stroke
@@ -11396,7 +11076,7 @@
 	)
 	(wire
 		(pts
-			(xy 271.78 107.95) (xy 273.05 107.95)
+			(xy 261.62 109.22) (xy 262.89 109.22)
 		)
 		(stroke
 			(width 0)
@@ -11423,16 +11103,6 @@
 			(type default)
 		)
 		(uuid "ec933903-436c-4fd0-9655-7f280d5e24d4")
-	)
-	(wire
-		(pts
-			(xy 231.14 77.47) (xy 236.22 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fb26a15e-9e0e-4c55-8a75-270e13fe16f5")
 	)
 	(wire
 		(pts
@@ -11578,7 +11248,7 @@
 	)
 	(global_label "V5"
 		(shape input)
-		(at 262.89 154.94 90)
+		(at 293.37 109.22 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11588,7 +11258,7 @@
 		)
 		(uuid "083b9df3-ba4f-4812-bd17-caed36fcdba3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 262.89 149.6567 90)
+			(at 293.37 103.9367 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12073,6 +11743,28 @@
 		(uuid "14ac5753-bf8a-49c1-9a0a-5dac0e585dd0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 308.269 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "V3_3"
+		(shape input)
+		(at 85.09 215.9 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "14d9d5df-99f4-4013-96ad-16775cb86f06")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 92.5504 215.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12766,7 +12458,7 @@
 	)
 	(global_label "Z_DS2"
 		(shape input)
-		(at 226.06 80.01 180)
+		(at 236.22 80.01 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -12776,7 +12468,7 @@
 		)
 		(uuid "2a034d5b-2a04-4ee7-9613-37a71c5fecff")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 217.2087 80.01 0)
+			(at 227.3687 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12832,7 +12524,7 @@
 	)
 	(global_label "PLD_READ"
 		(shape input)
-		(at 256.54 128.27 270)
+		(at 243.84 129.54 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -12842,7 +12534,7 @@
 		)
 		(uuid "2cb33ad2-c77f-41f3-9abb-e175e3d12ddf")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 256.54 140.5685 90)
+			(at 243.84 141.8385 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13800,7 +13492,7 @@
 	)
 	(global_label "PLD_FC1"
 		(shape input)
-		(at 259.08 128.27 270)
+		(at 246.38 129.54 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13810,7 +13502,7 @@
 		)
 		(uuid "4a3c9fba-abbc-43b2-9106-34b2e1ccc763")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 259.08 139.359 90)
+			(at 246.38 140.629 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14130,7 +13822,7 @@
 	)
 	(global_label "V5"
 		(shape input)
-		(at 257.81 154.94 90)
+		(at 288.29 109.22 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14140,7 +13832,7 @@
 		)
 		(uuid "52d0518f-c9a7-4f71-86fa-12a053debfdc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 257.81 149.6567 90)
+			(at 288.29 103.9367 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14240,7 +13932,7 @@
 	)
 	(global_label "PLD_FC0"
 		(shape input)
-		(at 261.62 128.27 270)
+		(at 248.92 129.54 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14250,7 +13942,7 @@
 		)
 		(uuid "545cb23e-1f4d-4682-b0ac-1a95c3958931")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 261.62 139.359 90)
+			(at 248.92 140.629 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14350,7 +14042,7 @@
 	)
 	(global_label "PLD_MTCR"
 		(shape input)
-		(at 262.89 175.26 270)
+		(at 293.37 129.54 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14360,7 +14052,7 @@
 		)
 		(uuid "5784cc9a-58a9-4923-83bd-bce72fd780ec")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 262.89 187.7399 90)
+			(at 293.37 142.0199 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15206,28 +14898,6 @@
 			)
 		)
 	)
-	(global_label "V5"
-		(shape input)
-		(at 85.09 215.9 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "70629819-6560-45a7-8316-3041211545fc")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 90.3733 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "D8"
 		(shape input)
 		(at 27.94 67.31 180)
@@ -15252,7 +14922,7 @@
 	)
 	(global_label "Z_DS3"
 		(shape input)
-		(at 226.06 77.47 180)
+		(at 236.22 77.47 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15262,7 +14932,7 @@
 		)
 		(uuid "74ad1100-3980-4fc3-b283-21915d542926")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 217.2087 77.47 0)
+			(at 227.3687 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15472,7 +15142,7 @@
 	)
 	(global_label "V5"
 		(shape input)
-		(at 271.78 107.95 180)
+		(at 261.62 109.22 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15482,7 +15152,7 @@
 		)
 		(uuid "7a4e9c6a-afbd-41db-b872-cf13bdb8f7f5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 266.4967 107.95 0)
+			(at 256.3367 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15648,7 +15318,7 @@
 	)
 	(global_label "PLD_DS3"
 		(shape input)
-		(at 278.13 128.27 270)
+		(at 267.97 129.54 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15658,7 +15328,7 @@
 		)
 		(uuid "80104d05-a8a8-496d-91f5-c4f104eba166")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 278.13 139.4799 90)
+			(at 267.97 140.7499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15730,6 +15400,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SCTRL_BSY"
+		(shape input)
+		(at 44.45 215.9 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "8675ee01-7a20-4e99-a0b1-29a1bfee6618")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 31.1839 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -15890,7 +15582,7 @@
 	)
 	(global_label "PLD_DOE"
 		(shape input)
-		(at 255.27 175.26 270)
+		(at 285.75 129.54 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15900,7 +15592,7 @@
 		)
 		(uuid "907780e5-45a3-4f05-9301-f69cb2f0c706")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 255.27 186.5304 90)
+			(at 285.75 140.8104 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16042,7 +15734,7 @@
 			)
 		)
 	)
-	(global_label "IORST"
+	(global_label "ABOEH"
 		(shape input)
 		(at 27.94 118.11 180)
 		(fields_autoplaced yes)
@@ -16054,7 +15746,7 @@
 		)
 		(uuid "94b96b77-5be8-4f56-aba2-922da98f535b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 19.5724 118.11 0)
+			(at 18.7862 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16132,7 +15824,7 @@
 	)
 	(global_label "Z_SENSEZ3"
 		(shape input)
-		(at 257.81 175.26 270)
+		(at 288.29 129.54 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -16142,7 +15834,7 @@
 		)
 		(uuid "997abfb4-8547-4ce4-b441-7bd94ca69819")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 257.81 188.8888 90)
+			(at 288.29 143.1688 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16308,7 +16000,7 @@
 	)
 	(global_label "PLD_DS1"
 		(shape input)
-		(at 273.05 128.27 270)
+		(at 262.89 129.54 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -16318,7 +16010,7 @@
 		)
 		(uuid "9c74095d-51a6-4d96-8934-7ce3e1b4ad94")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 273.05 139.4799 90)
+			(at 262.89 140.7499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16484,7 +16176,7 @@
 	)
 	(global_label "PLD_FC2"
 		(shape input)
-		(at 254 128.27 270)
+		(at 241.3 129.54 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -16494,7 +16186,7 @@
 		)
 		(uuid "a0149bb0-035e-43aa-aade-936af0ac42ff")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 254 139.359 90)
+			(at 241.3 140.629 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16610,6 +16302,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SCTRL_BSY"
+		(shape input)
+		(at 44.45 220.98 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a3b2a5fb-72b7-400e-bc1c-583dece9abe2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 31.1839 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -16814,7 +16528,7 @@
 	)
 	(global_label "PLD_DS0"
 		(shape input)
-		(at 275.59 128.27 270)
+		(at 265.43 129.54 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -16824,7 +16538,7 @@
 		)
 		(uuid "aaf0b3b7-6178-472a-8ff3-4595a01003ed")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 275.59 139.4799 90)
+			(at 265.43 140.7499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16962,28 +16676,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "SCSI_BUSY"
-		(shape input)
-		(at 44.45 215.9 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "ae21a75c-0979-4eb4-b9e6-57dcc1eb5bb4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 31.3048 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 				(hide yes)
 			)
 		)
@@ -17188,7 +16880,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 254 154.94 180)
+		(at 284.48 109.22 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -17198,7 +16890,7 @@
 		)
 		(uuid "b5f03651-4a93-490d-900a-15b31b2bcda7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 247.1443 154.94 0)
+			(at 277.6243 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17254,7 +16946,7 @@
 	)
 	(global_label "V5"
 		(shape input)
-		(at 252.73 107.95 180)
+		(at 240.03 109.22 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -17264,7 +16956,7 @@
 		)
 		(uuid "b6b882c0-49ab-4d00-af71-cc071a5e51cf")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 247.4467 107.95 0)
+			(at 234.7467 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17672,7 +17364,7 @@
 	)
 	(global_label "PLD_DS2"
 		(shape input)
-		(at 280.67 128.27 270)
+		(at 270.51 129.54 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -17682,7 +17374,7 @@
 		)
 		(uuid "bfb57aba-e3bb-4b0d-8df2-95e54ab8c4ac")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 280.67 139.4799 90)
+			(at 270.51 140.7499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18726,28 +18418,6 @@
 			)
 		)
 	)
-	(global_label "GND"
-		(shape input)
-		(at 322.58 52.07 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "f1df2412-aa56-4e9d-afdc-a2839b7d2cce")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 322.58 58.9257 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "A23"
 		(shape input)
 		(at 125.73 151.13 180)
@@ -18990,28 +18660,6 @@
 			)
 		)
 	)
-	(global_label "SCSI_BUSY"
-		(shape input)
-		(at 44.45 220.98 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "fa3d2450-c981-49cd-8012-d58228a700cd")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 31.3048 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "D28"
 		(shape input)
 		(at 125.73 78.74 180)
@@ -19122,28 +18770,6 @@
 			)
 		)
 	)
-	(global_label "Z_DTACK"
-		(shape input)
-		(at 322.58 46.99 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "fd9738f6-f51d-4ddc-ae6a-619094e98d94")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 322.58 35.9615 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "Z_A28D28"
 		(shape input)
 		(at 196.85 166.37 0)
@@ -19234,7 +18860,7 @@
 	)
 	(symbol
 		(lib_id "YC324-FK-071KL:YC324-FK-071KL")
-		(at 259.08 118.11 90)
+		(at 246.38 119.38 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -19243,7 +18869,7 @@
 		(fields_autoplaced yes)
 		(uuid "26b3f45d-af33-4299-bd98-6c7e68374f01")
 		(property "Reference" "RN14"
-			(at 265.43 116.8399 90)
+			(at 252.73 118.1099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19252,7 +18878,7 @@
 			)
 		)
 		(property "Value" "1K"
-			(at 265.43 119.3799 90)
+			(at 252.73 120.6499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19261,7 +18887,7 @@
 			)
 		)
 		(property "Footprint" "CAY16_102J4LF:BO_CAY16"
-			(at 259.08 118.11 0)
+			(at 246.38 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19271,7 +18897,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 259.08 118.11 0)
+			(at 246.38 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19280,7 +18906,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 259.08 118.11 0)
+			(at 246.38 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19289,7 +18915,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "0.7 mm"
-			(at 259.08 118.11 0)
+			(at 246.38 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19299,7 +18925,7 @@
 			)
 		)
 		(property "PARTREV" "V.9"
-			(at 259.08 118.11 0)
+			(at 246.38 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19309,7 +18935,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Yageo"
-			(at 259.08 118.11 0)
+			(at 246.38 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19319,7 +18945,7 @@
 			)
 		)
 		(property "SNAPEDA_PACKAGE_ID" "22941"
-			(at 259.08 118.11 0)
+			(at 246.38 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19329,7 +18955,7 @@
 			)
 		)
 		(property "STANDARD" "IPC 7351B"
-			(at 259.08 118.11 0)
+			(at 246.38 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19339,7 +18965,7 @@
 			)
 		)
 		(property "LCSC Part #" "C784824"
-			(at 259.08 118.11 90)
+			(at 246.38 119.38 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19348,7 +18974,7 @@
 			)
 		)
 		(property "FT Rotation Offset" "90"
-			(at 259.08 118.11 90)
+			(at 246.38 119.38 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19391,7 +19017,7 @@
 	)
 	(symbol
 		(lib_id "YC324-FK-071KL:YC324-FK-071KL")
-		(at 278.13 118.11 90)
+		(at 267.97 119.38 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -19400,7 +19026,7 @@
 		(fields_autoplaced yes)
 		(uuid "2c4ef0dc-3bbc-44cf-9075-0c775cc4b2f2")
 		(property "Reference" "RN15"
-			(at 284.48 116.8399 90)
+			(at 274.32 118.1099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19409,7 +19035,7 @@
 			)
 		)
 		(property "Value" "1K"
-			(at 284.48 119.3799 90)
+			(at 274.32 120.6499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19418,7 +19044,7 @@
 			)
 		)
 		(property "Footprint" "CAY16_102J4LF:BO_CAY16"
-			(at 278.13 118.11 0)
+			(at 267.97 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19428,7 +19054,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 278.13 118.11 0)
+			(at 267.97 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19437,7 +19063,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 278.13 118.11 0)
+			(at 267.97 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19446,7 +19072,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "0.7 mm"
-			(at 278.13 118.11 0)
+			(at 267.97 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19456,7 +19082,7 @@
 			)
 		)
 		(property "PARTREV" "V.9"
-			(at 278.13 118.11 0)
+			(at 267.97 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19466,7 +19092,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Yageo"
-			(at 278.13 118.11 0)
+			(at 267.97 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19476,7 +19102,7 @@
 			)
 		)
 		(property "SNAPEDA_PACKAGE_ID" "22941"
-			(at 278.13 118.11 0)
+			(at 267.97 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19486,7 +19112,7 @@
 			)
 		)
 		(property "STANDARD" "IPC 7351B"
-			(at 278.13 118.11 0)
+			(at 267.97 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19496,7 +19122,7 @@
 			)
 		)
 		(property "LCSC Part #" "C784824"
-			(at 278.13 118.11 90)
+			(at 267.97 119.38 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19505,7 +19131,7 @@
 			)
 		)
 		(property "FT Rotation Offset" "90"
-			(at 278.13 118.11 90)
+			(at 267.97 119.38 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20664,82 +20290,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:FerriteBead_Small")
-		(at 228.6 77.47 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "92749991-453f-4d83-8ade-0709ccefeef2")
-		(property "Reference" "FB4"
-			(at 228.6 74.93 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "60"
-			(at 228.6 77.47 90)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 228.6 75.692 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/2/281/QNFA9101-1915702.pdf"
-			(at 228.6 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Ferrite bead, small symbol"
-			(at 228.6 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC Part #" "C95177"
-			(at 228.6 77.47 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "938b6963-c9f2-48c9-a605-fae1c6a96942")
-		)
-		(pin "2"
-			(uuid "e2926574-ddd2-432a-b107-4eacf078365e")
-		)
-		(instances
-			(project "A4092"
-				(path "/8f9f4021-47aa-41d9-bea7-f6ccf72098bb/54ff82a5-3c96-49ab-8139-25683e385401"
-					(reference "FB4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "74LVC07APW_118:74LVC07APW_118")
 		(at 44.45 215.9 0)
 		(unit 1)
@@ -21227,87 +20777,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Small")
-		(at 322.58 49.53 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp yes)
-		(fields_autoplaced yes)
-		(uuid "b610fc22-e90b-49a9-abd7-68d88886b77d")
-		(property "Reference" "C5"
-			(at 325.12 48.2662 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10pF"
-			(at 325.12 50.8062 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 322.58 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 322.58 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 322.58 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC Part #" ""
-			(at 322.58 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "24a5d5cd-3a0f-4e1b-b500-076f98cd7d95")
-		)
-		(pin "2"
-			(uuid "19763601-7ad9-41a1-9fc1-6b5e5f81fdb2")
-		)
-		(instances
-			(project ""
-				(path "/8f9f4021-47aa-41d9-bea7-f6ccf72098bb/54ff82a5-3c96-49ab-8139-25683e385401"
-					(reference "C5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "YC324-FK-071KL:YC324-FK-071KL")
-		(at 260.35 165.1 90)
+		(at 290.83 119.38 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -21316,7 +20787,7 @@
 		(fields_autoplaced yes)
 		(uuid "d0eaf241-03fb-498b-8a01-9dd39ade3aca")
 		(property "Reference" "RN16"
-			(at 266.7 163.8299 90)
+			(at 297.18 118.1099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21325,7 +20796,7 @@
 			)
 		)
 		(property "Value" "1K"
-			(at 266.7 166.3699 90)
+			(at 297.18 120.6499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21334,7 +20805,7 @@
 			)
 		)
 		(property "Footprint" "CAY16_102J4LF:BO_CAY16"
-			(at 260.35 165.1 0)
+			(at 290.83 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21344,7 +20815,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 260.35 165.1 0)
+			(at 290.83 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21353,7 +20824,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 260.35 165.1 0)
+			(at 290.83 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21362,7 +20833,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "0.7 mm"
-			(at 260.35 165.1 0)
+			(at 290.83 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21372,7 +20843,7 @@
 			)
 		)
 		(property "PARTREV" "V.9"
-			(at 260.35 165.1 0)
+			(at 290.83 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21382,7 +20853,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Yageo"
-			(at 260.35 165.1 0)
+			(at 290.83 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21392,7 +20863,7 @@
 			)
 		)
 		(property "SNAPEDA_PACKAGE_ID" "22941"
-			(at 260.35 165.1 0)
+			(at 290.83 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21402,7 +20873,7 @@
 			)
 		)
 		(property "STANDARD" "IPC 7351B"
-			(at 260.35 165.1 0)
+			(at 290.83 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21412,7 +20883,7 @@
 			)
 		)
 		(property "LCSC Part #" "C784824"
-			(at 260.35 165.1 90)
+			(at 290.83 119.38 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21421,7 +20892,7 @@
 			)
 		)
 		(property "FT Rotation Offset" "90"
-			(at 260.35 165.1 90)
+			(at 290.83 119.38 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21683,82 +21154,6 @@
 			(project ""
 				(path "/8f9f4021-47aa-41d9-bea7-f6ccf72098bb/54ff82a5-3c96-49ab-8139-25683e385401"
 					(reference "U6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:FerriteBead_Small")
-		(at 229.87 80.01 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "efea8775-7907-4dd7-ae9d-602e2faacbda")
-		(property "Reference" "FB5"
-			(at 233.172 78.994 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "60"
-			(at 229.87 80.01 90)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 229.87 78.232 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/2/281/QNFA9101-1915702.pdf"
-			(at 229.87 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Ferrite bead, small symbol"
-			(at 229.87 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC Part #" "C95177"
-			(at 229.87 80.01 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "63bbde77-4b77-4925-be9e-3e728e98b06d")
-		)
-		(pin "2"
-			(uuid "c33424b1-6765-4da2-b33b-218cc9de2f13")
-		)
-		(instances
-			(project "A4092"
-				(path "/8f9f4021-47aa-41d9-bea7-f6ccf72098bb/54ff82a5-3c96-49ab-8139-25683e385401"
-					(reference "FB5")
 					(unit 1)
 				)
 			)

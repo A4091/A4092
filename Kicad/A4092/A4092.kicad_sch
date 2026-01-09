@@ -6,13 +6,14 @@
 	(paper "A4")
 	(title_block
 		(title "A4092")
-		(rev "PROTO0")
+		(date "2026-01-08")
+		(rev "REV C")
 		(company "amiga.technology")
 	)
 	(lib_symbols)
-	(text "Advanced SCSI II Controller Board\nThis Zorro III board is based on the A4091 which was designed and sold by Commodore and\nDKB Software.\nFeatures:\n• Boot ROM\n• NCR 53C710 SCSI II controller\n• 50 pin internal connector\n• 50 pin external SCSI2 connector\n• Active SCSI termination\n• Zorro III bus support\nCaveats:\n• Requires Buster 11\n• Does not work with with A3640 Rev 3.0\n• No RAM option\n• No wide SCSI support\n\nThe Commodore A4091 was reverse-engineered by Stefan Reinauer and Chris Hooper. "
+	(text "Advanced SCSI II Controller Board\n\nFeatures:\n• NCR 53C710 SCSI II controller\n• 50 pin internal connector\n• 50 pin connector for external SCSI2\n• Active SCSI termination\n• SPI Flash for AutoBoot ROM\n• Zorro III bus support\n• Fully software configurable (No DIP switches)\n\nThis board is inspired by the Commodore A4091 which was \nreverse-engineered by Stefan Reinauer and Chris Hooper. \n\nGitHub Project:\nhttps://github.com/A4091/"
 		(exclude_from_sim no)
-		(at 51.816 105.156 0)
+		(at 79.248 109.474 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -21,19 +22,9 @@
 		)
 		(uuid "363a9f3a-b894-40a2-9e9f-dc4ebfc1fee5")
 	)
-	(text "GitHub Project:\nhttps://github.com/A4091/\n\nSchematics:\nhttps://github.com/A4091/a4091-hardware/blob/main/schematics/ReA4091_Rev4_2023-05-15_Schematic.pdf"
-		(exclude_from_sim no)
-		(at 157.734 153.162 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-		)
-		(uuid "b26551c3-a6a4-43fd-b17b-3a63f4664a89")
-	)
 	(text "Amiga 4092 SCSI-2 Host Controller\n"
 		(exclude_from_sim no)
-		(at 122.428 64.262 0)
+		(at 149.098 67.056 0)
 		(effects
 			(font
 				(size 5.08 5.08)
@@ -44,7 +35,7 @@
 		(uuid "c6531cf0-d2cd-433f-a591-9bba1b6cad6b")
 	)
 	(sheet
-		(at 187.96 21.59)
+		(at 203.2 20.32)
 		(size 35.56 29.21)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -60,7 +51,7 @@
 		)
 		(uuid "166c366c-e5f9-4398-87d9-75fc4b57be99")
 		(property "Sheetname" "Caps & Power"
-			(at 187.96 20.8784 0)
+			(at 203.2 19.6084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -69,7 +60,7 @@
 			)
 		)
 		(property "Sheetfile" "power.kicad_sch"
-			(at 187.96 51.3846 0)
+			(at 203.2 50.1146 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -86,7 +77,7 @@
 		)
 	)
 	(sheet
-		(at 73.66 21.59)
+		(at 88.9 20.32)
 		(size 35.56 29.21)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -101,8 +92,8 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "2daf4fe3-1e72-4ad5-914a-264df02f69b3")
-		(property "Sheetname" "SCSI-2 Controller"
-			(at 73.66 20.8784 0)
+		(property "Sheetname" "SCSI-2"
+			(at 88.9 19.6084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -111,7 +102,7 @@
 			)
 		)
 		(property "Sheetfile" "scsi2.kicad_sch"
-			(at 73.66 51.3846 0)
+			(at 88.9 50.1146 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -128,7 +119,7 @@
 		)
 	)
 	(sheet
-		(at 35.56 21.59)
+		(at 50.8 20.32)
 		(size 35.56 29.21)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -143,8 +134,8 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "53e9e23b-3b92-4a87-a15c-9c224d6145c5")
-		(property "Sheetname" "Termination & Connectors"
-			(at 35.56 20.8784 0)
+		(property "Sheetname" "Connectors"
+			(at 50.8 19.6084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -153,7 +144,7 @@
 			)
 		)
 		(property "Sheetfile" "Termination.kicad_sch"
-			(at 35.56 51.3846 0)
+			(at 50.8 50.1146 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -170,7 +161,7 @@
 		)
 	)
 	(sheet
-		(at 111.76 21.59)
+		(at 127 20.32)
 		(size 35.56 29.21)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -186,7 +177,7 @@
 		)
 		(uuid "54ff82a5-3c96-49ab-8139-25683e385401")
 		(property "Sheetname" "Zorro III bus"
-			(at 111.76 20.8784 0)
+			(at 127 19.6084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -195,7 +186,7 @@
 			)
 		)
 		(property "Sheetfile" "zorro3.kicad_sch"
-			(at 111.76 51.3846 0)
+			(at 127 50.1146 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -212,49 +203,7 @@
 		)
 	)
 	(sheet
-		(at 226.0914 21.5967)
-		(size 35.5286 29.2033)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "5b91ebe5-f6af-47e6-bce1-1077a0e66fb0")
-		(property "Sheetname" "Flash memory"
-			(at 226.0914 20.8851 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "flash.kicad_sch"
-			(at 226.0914 51.3846 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(instances
-			(project "A4092"
-				(path "/8f9f4021-47aa-41d9-bea7-f6ccf72098bb"
-					(page "7")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 149.86 21.59)
+		(at 165.1 20.32)
 		(size 35.56 29.21)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -269,8 +218,8 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "6ae4417c-9681-4757-b289-033d6e31deb3")
-		(property "Sheetname" "CPLD"
-			(at 149.86 20.8784 0)
+		(property "Sheetname" "CPLD & SPI (page 4)"
+			(at 165.1 19.6084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -279,7 +228,7 @@
 			)
 		)
 		(property "Sheetfile" "cpld.kicad_sch"
-			(at 149.86 51.3846 0)
+			(at 165.1 50.1146 0)
 			(effects
 				(font
 					(size 1.27 1.27)

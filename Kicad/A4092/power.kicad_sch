@@ -6,7 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "A4092")
-		(rev "PROTO0")
+		(date "2026-01-08")
+		(rev "REV C")
 		(company "amiga.technology")
 	)
 	(lib_symbols
@@ -2360,50 +2361,6 @@
 			)
 		)
 	)
-	(global_label "V5"
-		(shape input)
-		(at 86.36 55.88 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "16f508c7-0d21-4bd7-9a18-a8590f88323e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 81.0767 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "GND"
-		(shape input)
-		(at 100.33 60.96 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "191dc4d1-2a31-4c70-a5d5-011d7ba3e1a3")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 100.33 67.8157 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "GND"
 		(shape input)
 		(at 67.31 62.23 270)
@@ -2483,28 +2440,6 @@
 		(uuid "3458ea0b-cd14-4263-bccb-eba700955568")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 34.0867 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "V5"
-		(shape input)
-		(at 100.33 55.88 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "3fbe2b54-d0c6-498c-949c-8959d249c57e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 95.0467 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2769,6 +2704,28 @@
 		(uuid "88f8edca-83b8-4fe3-8667-b7e14fedcb22")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 82.55 131.3157 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "V3_3"
+		(shape input)
+		(at 86.36 55.88 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "8e3814bf-2421-4161-a794-a7c53d43aa02")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 78.8996 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4368,7 +4325,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "7802fd1b-0613-40a0-a60d-6236161adf9b")
 		(property "Reference" "C46"
@@ -4944,9 +4901,9 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "bece8c9d-33bb-490d-9b5a-1baa2426c6d1")
-		(property "Reference" "C801"
+		(property "Reference" "C501"
 			(at 89.662 57.15 0)
 			(effects
 				(font
@@ -5009,7 +4966,7 @@
 		(instances
 			(project "A4092"
 				(path "/8f9f4021-47aa-41d9-bea7-f6ccf72098bb/166c366c-e5f9-4398-87d9-75fc4b57be99"
-					(reference "C801")
+					(reference "C501")
 					(unit 1)
 				)
 			)
@@ -5276,7 +5233,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "ca69dc74-5460-45a1-9faf-570a43ef80c8")
 		(property "Reference" "J7"
@@ -5684,84 +5641,6 @@
 			(project "A4092"
 				(path "/8f9f4021-47aa-41d9-bea7-f6ccf72098bb/166c366c-e5f9-4398-87d9-75fc4b57be99"
 					(reference "C45")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 100.33 58.42 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e18f53dc-243f-475f-ad44-27418d1ae601")
-		(property "Reference" "C1301"
-			(at 103.632 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF"
-			(at 102.616 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 100.33 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 100.33 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 100.33 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC Part #" "C14663"
-			(at 100.33 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "01141ad5-ed7a-4d84-b67c-7c51aa725f1a")
-		)
-		(pin "1"
-			(uuid "fbd1a954-bb4a-49a6-8d43-b974a9282baf")
-		)
-		(instances
-			(project "A4092"
-				(path "/8f9f4021-47aa-41d9-bea7-f6ccf72098bb/166c366c-e5f9-4398-87d9-75fc4b57be99"
-					(reference "C1301")
 					(unit 1)
 				)
 			)

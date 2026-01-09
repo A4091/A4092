@@ -610,6 +610,7 @@
       "single_global_label": "ignore",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
+      "undefined_netclass": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
       "wire_dangling": "error"
@@ -923,15 +924,15 @@
     ],
     [
       "53e9e23b-3b92-4a87-a15c-9c224d6145c5",
-      "Termination & Connectors"
+      "Connectors"
     ],
     [
       "2daf4fe3-1e72-4ad5-914a-264df02f69b3",
-      "SCSI-2 Controller"
+      "SCSI-2"
     ],
     [
       "6ae4417c-9681-4757-b289-033d6e31deb3",
-      "CPLD"
+      "CPLD & SPI (page 4)"
     ],
     [
       "54ff82a5-3c96-49ab-8139-25683e385401",
@@ -940,10 +941,6 @@
     [
       "166c366c-e5f9-4398-87d9-75fc4b57be99",
       "Caps & Power"
-    ],
-    [
-      "5b91ebe5-f6af-47e6-bce1-1077a0e66fb0",
-      "Flash memory"
     ]
   ],
   "text_variables": {}
