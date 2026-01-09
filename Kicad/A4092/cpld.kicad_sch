@@ -5061,8 +5061,16 @@
 		(uuid "fc87bd3d-7f10-4de5-a1df-94b7e0f3f572")
 	)
 	(no_connect
+		(at 34.29 134.62)
+		(uuid "036a940b-6ca9-4d05-92ac-df655784bfd3")
+	)
+	(no_connect
 		(at 100.33 27.94)
 		(uuid "1a40cff6-6ff6-4050-8ec4-e429813569b4")
+	)
+	(no_connect
+		(at 34.29 66.04)
+		(uuid "787551fa-2f2b-493b-9775-3a5dce9a6721")
 	)
 	(no_connect
 		(at 173.99 35.56)
@@ -5085,12 +5093,20 @@
 		(uuid "9f5600ad-ba54-4855-888a-87f36c150ad3")
 	)
 	(no_connect
+		(at 34.29 71.12)
+		(uuid "a6904ffe-380d-41ba-988a-144cd350d1df")
+	)
+	(no_connect
 		(at 34.29 127)
 		(uuid "a9ce9730-65e2-4a46-988c-ee62007ac132")
 	)
 	(no_connect
 		(at 100.33 25.4)
 		(uuid "b1e6e23b-1399-4bd1-9724-bb13a9b1a6cb")
+	)
+	(no_connect
+		(at 34.29 68.58)
+		(uuid "b52f68e8-bd93-49bb-ab01-616044ff0093")
 	)
 	(no_connect
 		(at 153.67 35.56)
@@ -6306,28 +6322,6 @@
 			)
 		)
 	)
-	(global_label "PLD_SID"
-		(shape input)
-		(at 34.29 134.62 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "3297114d-3982-4a80-9da9-5b03c75a8657")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 23.6848 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "A8"
 		(shape input)
 		(at 34.29 93.98 180)
@@ -6363,28 +6357,6 @@
 		(uuid "34a581ba-dadb-4b05-afe6-3dadcbbf9083")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 29.0067 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "ROM_WE"
-		(shape input)
-		(at 34.29 68.58 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "36fdc2f0-b942-48c6-a4dc-efc9685a863b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 23.6849 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6614,28 +6586,6 @@
 			)
 		)
 	)
-	(global_label "ROM_OE"
-		(shape input)
-		(at 34.29 71.12 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "51314cf3-8a15-40d2-850e-07f70eea0eea")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 23.8058 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "V5"
 		(shape input)
 		(at 25.4 139.7 180)
@@ -6830,28 +6780,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "ROM_CE"
-		(shape input)
-		(at 34.29 66.04 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "5d652f03-23c9-4660-b4fc-7d17431845fe")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 23.8663 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 				(hide yes)
 			)
 		)
