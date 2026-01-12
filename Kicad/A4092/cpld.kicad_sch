@@ -9513,9 +9513,9 @@
 		(at 29.21 139.7 270)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "311fb464-7780-41b0-93a6-ab6a3174a033")
 		(property "Reference" "R2"
 			(at 29.21 141.732 90)

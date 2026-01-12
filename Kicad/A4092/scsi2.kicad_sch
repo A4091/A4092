@@ -15509,9 +15509,9 @@
 		(at 129.54 138.43 90)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "75e13aa0-d218-40af-86a5-acad3da25f22")
 		(property "Reference" "RN8"
