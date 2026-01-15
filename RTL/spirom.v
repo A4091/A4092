@@ -73,38 +73,42 @@ module spirom(
             SPI_CLK <= 0;
             SPI_CS_n <= 1;
             SPI_MOSI <= 0;
-            close = 1;
+            close <= 1;
             spi_state <= SPI_IDLE;
         end else begin
             spi_read <= 0;
             dtack <= 0;
             SPI_CLK <= 0;
+            SPI_MOSI <= 0;
             case (spi_state)
             SPI_IDLE : begin
-                SPI_MOSI <= 0;
-                if (romcycle_sync && ~&addr[22:3]) begin
+                spi_state <= SPI_IDLE;
+                if (romcycle_sync && ~&addr[22:4]) begin            // access to ROM area
                     SPI_CS_n <= 1;
-                    close = 1;
+                    close <= 1;
                     cnt <= 40;
-                    spi_state <= SPI_N;
-                end else if (romcycle_sync && &addr[22:3] && doe_sync && DS_sync) begin
-                    close = addr[2];
+                    if (READ) begin
+                        spi_state <= SPI_N;                         // READ -> Start SPI read command
+                    end else begin
+                        spi_state <= SPI_DTACK;                     // WRITE -> immediately end ZIII Cycle
+                    end
+                end else if (romcycle_sync && &addr[22:4]) begin    // access to control Register
+                    close <= addr[2];
                     cnt <= 8;
-                    spi_state <= SPI_N;
-                end else begin
-                    spi_state <= SPI_IDLE;
+                    if (READ) begin
+                        spi_state <= SPI_N;                         // READ -> immediately start SPI cycle
+                    end else if (doe_sync && DS_sync) begin
+                        spi_state <= SPI_N;                         // WRITE -> wait for DOE and DS before start SPI cycle
+                    end
                 end
             end
             SPI_N : begin
                 SPI_CS_n <= 0;
                 if (cnt == 0) begin
-                    SPI_MOSI <= 0;
                     spi_read <= READ;
                     spi_state <= SPI_DTACK;
                 end else begin
-                    if (cnt <= 8 && READ) begin
-                        SPI_MOSI <= 0;
-                    end else begin
+                    if (cnt > 8 || !READ) begin
                         SPI_MOSI <= readcmd[cnt-1];
                     end
                     spi_state <= SPI_P;

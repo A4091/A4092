@@ -23,6 +23,7 @@
 `define USE_SPIROM          // undef for Parallel ROM define for SPI ROM
 `undef USE_DIP_SWITCH       // undef to use Virtual Register, define to use Hardware Switch
 `define A22_21_MISSING      // undef if A22 and A21 are connected to CPLD define if address missing
+`undef 53C770               // if defined 25MHz Pin is an Input, else output 1/2 CLK_50M
 // ###########################################################
 
 module A4092 (
@@ -30,7 +31,11 @@ module A4092 (
     inout [1:0] AL,     // lower Addresslines for NCR
     inout [31:0] D,     // Data Bus
     input CLK_50M,      // 50MHz Clock Input
-    output reg CLK = 0, // 25MHz Clock Output
+`ifdef 53C770
+    input CLK,          // 25MHz Clock Input (NCR BCLK)
+`else
+    output reg CLK = 0, // 25MHz Clock Output (NCR BCLK)
+`endif
 
     // Zorro Bus Interface
     input IORST_n,      // I/O Reset
@@ -92,7 +97,9 @@ module A4092 (
 
     // SCSI ID Register
     output SID_n,       // Buffer Enable if DIP Switch is used
-    output DIP_EXT_TERM // Termination Enable if NO DIP Switch
+    output DIP_EXT_TERM, // Termination Enable if NO DIP Switch
+
+    output test
     );
 
     wire slave_sig;
@@ -155,10 +162,12 @@ module A4092 (
     wire dma_doe;
     wire [3:0] ds_n_sig;
 
+`ifndef 53C770
     // generate 25MHz Clock
     always @(posedge CLK_50M) begin
         CLK <= !CLK;
     end
+`endif
 
     // ########################################
     // Zorro signal assignment
@@ -292,6 +301,7 @@ module A4092 (
     );
 
 	dmaarbiter DMA_ARBITER (
+        .test (test),
         .clk7m (C7M),
         .clk (CLK),
         .IORST_n (IORST_n),
@@ -307,7 +317,6 @@ module A4092 (
 	);
 
 	dmamaster DMA_MASTER (
-        .clk (CLK_50M),
         .bclk (CLK),
         .IORST_n (IORST_n),
         .SLAVE_n (SLAVE_n),
