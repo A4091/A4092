@@ -9237,7 +9237,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "5787170-5"
+		(property "Value" "TE Connectivity 5787395-5"
 			(at 215.9 109.22 0)
 			(effects
 				(font
@@ -9267,6 +9267,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 214.63 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C3138281"
+			(at 214.63 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "FT Rotation Offset" "90"
 			(at 214.63 124.46 0)
 			(effects
 				(font
@@ -9487,6 +9505,24 @@
 		)
 		(property "Description" "Generic connector, double row, 02x25, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 153.67 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C221059"
+			(at 153.67 48.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "FT Rotation Offset " "270"
+			(at 153.67 48.26 90)
 			(effects
 				(font
 					(size 1.27 1.27)
