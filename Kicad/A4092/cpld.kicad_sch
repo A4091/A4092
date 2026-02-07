@@ -8934,7 +8934,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "144-TQFP_XIL"
+		(property "Footprint" "XC95144XL_5TQG144C:144-TQFP_XIL"
 			(at 67.31 104.14 0)
 			(effects
 				(font
