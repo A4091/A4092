@@ -9,3 +9,4 @@ Gerbers
 kibot_errors.*
 *.lck
 *.kicad_prl
+*.fp-info-cache
