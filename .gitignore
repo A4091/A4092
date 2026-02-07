@@ -1,2 +1,5 @@
 **/.DS_Store
+**/fabrication-toolkit-options.json
+**/fp-info-cache
+**/production
 *-backups/*
