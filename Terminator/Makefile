@@ -1,4 +1,4 @@
-OPENSCAD = /Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD
+OPENSCAD = $(if $(wildcard /Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD),/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD,openscad-nightly)
 SRC = A4092_terminator.scad
 DEPS = $(SRC) ../YAPP_Box/YAPPgenerator_v3.scad
 
