@@ -4,23 +4,29 @@ This is the manual for the A4092 SCSI-2 host controller.
 
 ## Requirements
 
-This  manual uses latex to build. It will need a few extensions installed.
+Building the manual requires:
 
-### MacOS:
+- A LaTeX distribution with `pdflatex` and `tlmgr` (e.g. [MacTeX](https://www.tug.org/mactex/) on macOS)
+- [Scribus](https://www.scribus.net/) for SVG-to-CMYK-PDF conversion
+- Python 3 for the `svg2cmyk.py` helper script
 
-% sudo tlmgr update --self
-% sudo tlmgr install titlesec
-% sudo tlmgr install pagecolor
-% sudo tlmgr install helvetic
-% sudo tlmgr install svg
-% sudo tlmgr install framed
-% sudo tlmgr install transparent
-% sudo tlmgr install enumitem
+### LaTeX packages (macOS)
+
+```
+sudo tlmgr update --self
+sudo tlmgr install titlesec pagecolor helvetic svg framed transparent enumitem
+```
 
 ## How to build
 
-Build a PDF file using
+```
+make
+```
 
-% make
+Output: `A4092-manual.pdf`
 
+To remove all generated files:
 
+```
+make clean
+```
