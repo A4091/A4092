@@ -29,7 +29,7 @@ module spirom(
     input FC2,
     output reg dtack = 0,
     output reg spi_read = 0,
-    output reg [7:0] spi_dataout = 0,
+    output reg [7:0] spi_dataout = 8'b0,
     input [7:0] spi_datain,
     output reg SPI_CLK = 0,
     output reg SPI_CS_n = 1,
@@ -37,21 +37,34 @@ module spirom(
     input SPI_MISO
     );
 
-    localparam  SPI_IDLE    =  0,
-                SPI_N       =  1,
-                SPI_P       =  2,
-                SPI_DTACK   =  3;
+    localparam  SPI_IDLE    =  2'b00,
+                SPI_N       =  2'b01,
+                SPI_P       =  2'b10,
+                SPI_DTACK   =  2'b11;
 
-    (* fsm_encoding = "gray" *)reg [2:0] spi_state = SPI_IDLE;
-    reg [5:0] cnt = 40;
+    (* fsm_encoding = "user" *)reg [1:0] spi_state = SPI_IDLE;
+
+    reg [5:0] cnt = 6'd40;
     wire [39:0] readcmd;
-    reg close = 1;
+    reg close = 1'b1;
 
     reg romcycle_sync = 0;
     reg doe_sync = 0;
     reg DS_sync = 0;
 
-    assign readcmd = {8'h03, 3'b000, addr[22:2], spi_datain};
+    wire SPI_ROM;
+    wire SPI_PORT_WRITE_HOLD;
+    wire SPI_PORT_WRITE_END;
+    wire SPI_PORT_READ_HOLD;
+    wire SPI_PORT_READ_END;
+
+    assign SPI_ROM = &addr[22:6] ? 0 : 1;                                         // $000000 -$7fffbf
+    assign SPI_PORT_WRITE_HOLD = (!READ && ({addr[7:2],2'b00} == 8'hc0)) ? 1 : 0; // $7fffc0
+    assign SPI_PORT_WRITE_END = (!READ && ({addr[7:2],2'b00} == 8'hd0)) ? 1 : 0;  // $7fffd0
+    assign SPI_PORT_READ_HOLD = (READ && ({addr[7:2],2'b00} == 8'he0)) ? 1 : 0;   // $7fffe0
+    assign SPI_PORT_READ_END = (READ && ({addr[7:2],2'b00} == 8'hf0)) ? 1 : 0;    // $7ffff0
+
+    assign readcmd = {8'h03, 3'b000, addr[22:2], spi_datain};   //40 bit SPI for normal ROM read
 
     always @ (negedge IORST_n, posedge clk) begin
         if (!IORST_n) begin
@@ -67,7 +80,7 @@ module spirom(
 
     always @ (negedge IORST_n, posedge clk) begin
         if (!IORST_n) begin
-            cnt <= 40;
+            cnt <= 6'd40;
             spi_read <= 0;
             dtack <= 0;
             SPI_CLK <= 0;
@@ -83,47 +96,63 @@ module spirom(
             case (spi_state)
             SPI_IDLE : begin
                 spi_state <= SPI_IDLE;
-                if (romcycle_sync && ~&addr[22:4]) begin            // access to ROM area
-                    SPI_CS_n <= 1;
-                    close <= 1;
-                    cnt <= 40;
-                    if (READ) begin
-                        spi_state <= SPI_N;                         // READ -> Start SPI read command
+                close <= 1;
+                cnt <= 6'd8;
+                if (romcycle_sync) begin
+                    if (SPI_ROM) begin                      // $000000 - $7fffbf
+                        SPI_CS_n <= 1'b1;
+                        cnt <= 6'd40;
+                        if (READ) begin
+                            spi_state <= SPI_N;             // READ -> Start SPI read command
+                        end else begin
+                            spi_state <= SPI_DTACK;         // WRITE -> immediately end ZIII Cycle
+                        end
+                    end else if (SPI_PORT_READ_END) begin   // $7ffff0
+                        spi_state <= SPI_N;
+                    end else if (SPI_PORT_READ_HOLD) begin  // $7fffe0
+                        close <= 0;
+                        spi_state <= SPI_N;
+                    end else if (SPI_PORT_WRITE_END) begin  // $7fffd0
+                        if (doe_sync && DS_sync) begin      // wait for DOE and DS before start SPI cycle
+                            spi_state <= SPI_N;
+                        end
+                    end else if (SPI_PORT_WRITE_HOLD) begin // $7fffc0
+                        if (doe_sync && DS_sync) begin      // wait for DOE and DS before start SPI cycle
+                            close <= 0;
+                            spi_state <= SPI_N;
+                        end
                     end else begin
-                        spi_state <= SPI_DTACK;                     // WRITE -> immediately end ZIII Cycle
-                    end
-                end else if (romcycle_sync && &addr[22:4]) begin    // access to control Register
-                    close <= addr[2];
-                    cnt <= 8;
-                    if (READ) begin
-                        spi_state <= SPI_N;                         // READ -> immediately start SPI cycle
-                    end else if (doe_sync && DS_sync) begin
-                        spi_state <= SPI_N;                         // WRITE -> wait for DOE and DS before start SPI cycle
+                        spi_state <= SPI_DTACK;             // all other -> immediately end ZIII Cycle
                     end
                 end
             end
+
             SPI_N : begin
                 SPI_CS_n <= 0;
                 if (cnt == 0) begin
                     spi_read <= READ;
                     spi_state <= SPI_DTACK;
                 end else begin
-                    if (cnt > 8 || !READ) begin
-                        SPI_MOSI <= readcmd[cnt-1];
+                    if (cnt > 6'd8 || !READ) begin
+                        SPI_MOSI <= readcmd[cnt - 6'd1];
+                    end else begin
+                        SPI_MOSI <= 0;
                     end
                     spi_state <= SPI_P;
                 end
             end
+
             SPI_P : begin
                 SPI_CLK <= 1;
-                if (cnt <= 8 && READ) begin
+                if (cnt <= 6'd8 && READ) begin
                     spi_dataout <= {spi_dataout[6:0], SPI_MISO};
                 end else begin
                     spi_dataout <= 0;
                 end
-                cnt <= cnt -1;
+                cnt <= cnt - 6'd1;
                 spi_state <= SPI_N;
             end
+
             SPI_DTACK : begin
                 SPI_CS_n <= close;
                 if (!romcycle_sync) begin

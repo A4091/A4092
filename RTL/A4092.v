@@ -20,22 +20,27 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 // ###########################################################
+`undef A4770                // define for A4770 cheeta board
+`undef A4092c               // define for A4092c board without Parallelrom and DIP Switch
+// A4092a need manual selection:
 `define USE_SPIROM          // undef for Parallel ROM define for SPI ROM
 `undef USE_DIP_SWITCH       // undef to use Virtual Register, define to use Hardware Switch
-`define A22_21_MISSING      // undef if A22 and A21 are connected to CPLD define if address missing
-`undef 53C770               // if defined 25MHz Pin is an Input, else output 1/2 CLK_50M
 // ###########################################################
+
+`ifdef A4770
+    `define USE_SPIROM
+    `undef  USE_DIP_SWITCH
+`elsif A4092c
+    `define USE_SPIROM
+    `undef  USE_DIP_SWITCH
+`endif
 
 module A4092 (
     input [31:2] A,     // Address Bus
     inout [1:0] AL,     // lower Addresslines for NCR
     inout [31:0] D,     // Data Bus
     input CLK_50M,      // 50MHz Clock Input
-`ifdef 53C770
-    input CLK,          // 25MHz Clock Input (NCR BCLK)
-`else
     output reg CLK = 0, // 25MHz Clock Output (NCR BCLK)
-`endif
 
     // Zorro Bus Interface
     input IORST_n,      // I/O Reset
@@ -66,23 +71,24 @@ module A4092 (
     output ABOEH_n,
     output D2Z_n,
     output Z2D_n,
-    output FCS,         // Output to U1 and U4 Addresslatch, high = latched!
-    output BMASTER,     // Inverted MASTER_n signal
+    output FCS,             // Output to U1 and U4 Addresslatch, high = latched!
+    output BMASTER,         // Inverted MASTER_n signal
 
     // SCSI Chip Interface
-    input SLACK_n,      // SCSI ack during slave access
-    input SINT_n,       // SCSI interrupt
-    input SBR_n,        // SCSI bus request (for DMA)
-    inout [1:0] SIZ,    // Sizing bits from SCSI (for DMA)
-    output SBG_n,       // SCSI bus grant (for DMA)
-    input MASTER_n,     // SCSI chip is master of local bus
-    inout SCSI_AS_n,    // Address Strobe to SCSI chip (PLD_AS)
-    inout SCSI_DS_n,    // Data Strobe to SCSI chip (PLD_DS)
-    output SCSI_SREG_n, // Register select to SCSI chip
-    output reg SCSI_STERM_n  = 1,
-    input CBREQ_n,      // Cache Burst Request, not used
-    inout CBACK_n,      // Cache Burst Acknowledge
-    input SC0,          // SCSI snoop control
+    input SLACK_n,          // SCSI ack during slave access
+    input SINT_n,           // SCSI interrupt
+    input SBR_n,            // SCSI bus request (for DMA)
+    inout [1:0] SIZ,        // Sizing bits from SCSI (for DMA)
+    output SBG_n,           // SCSI bus grant (for DMA)
+    input MASTER_n,         // SCSI chip is master of local bus
+    inout SCSI_AS_n,        // Address Strobe to SCSI chip (PLD_AS)
+    inout A4092SCSI_DS_n,   // A4092 Data Strobe to SCSI chip (PLD_DS)
+    inout A4770SCSI_DS_n,   // A4770 Data Strobe to SCSI chip (PLD_DS)
+    output SCSI_SREG_n,     // Register select to SCSI chip
+    output SCSI_STERM_n,    // STERM signal to SCSI Chip
+    input CBREQ_n,          // Cache Burst Request, not used
+    inout CBACK_n,          // Cache Burst Acknowledge
+    input SC0,              // SCSI snoop control
 
     // ROM Interface
     output ROM_OE_n,
@@ -96,11 +102,19 @@ module A4092 (
     output SPI_CS_n,
 
     // SCSI ID Register
-    output SID_n,       // Buffer Enable if DIP Switch is used
-    output DIP_EXT_TERM, // Termination Enable if NO DIP Switch
-
-    output test
+    output SID_n,           // Buffer Enable if DIP Switch is used
+    output DIP_EXT_TERM     // Termination Enable if NO DIP Switch
     );
+
+`ifdef A4770
+    localparam mfg_id = 16'd514;        // Commodore (West Chester)
+    localparam prod_id = 8'd84;         // A 4091 SCSI
+`else   // A4092
+    localparam mfg_id = 16'd514;        // Commodore (West Chester)
+    localparam prod_id = 8'd84;         // A 4091 SCSI
+`endif
+    localparam serial = 32'd14;         // Serialnumber
+    localparam romvec = 16'd512;        // Romvector for Autoboot ROM
 
     wire slave_sig;
     wire slavecycle;
@@ -162,12 +176,10 @@ module A4092 (
     wire dma_doe;
     wire [3:0] ds_n_sig;
 
-`ifndef 53C770
-    // generate 25MHz Clock
+    // generate 25MHz BCLK
     always @(posedge CLK_50M) begin
         CLK <= !CLK;
     end
-`endif
 
     // ########################################
     // Zorro signal assignment
@@ -184,6 +196,7 @@ module A4092 (
 
     // ########################################
     // Card internal Signal assignment
+
     assign CBACK_n = (MASTER_n) ? 1'bZ : 1;
 
     // SCSI Bus Termination Control
@@ -195,22 +208,14 @@ module A4092 (
     assign SID_n = 1;
 `endif
 
-    /* The SCSI termination is based on a synchronized DTACK.  I
-    synchronize DTACK for either slave or master cycle, since the
-    NCR 53C710 wants the effect of SLACK (which makes a DTACK on slave
-    to SCSI cycles) reflected on STERM to actually end the cycle. */
-    always @ (posedge Z_FCS_n, negedge CLK) begin
-        if (Z_FCS_n) begin
-            SCSI_STERM_n <= 1;
-        end else begin
-            if (!SCSI_AS_n && !DTACK_n) begin
-                SCSI_STERM_n <= 0;
-            end
-        end
-    end
-
     assign SCSI_AS_n = (mybus) ? 1'bz : !scsi_as_sig;
-    assign SCSI_DS_n = (mybus) ? 1'bz : !scsi_ds_sig;
+`ifdef A4770
+    assign A4092SCSI_DS_n = 1'bz;
+    assign A4770SCSI_DS_n = (mybus) ? 1'bz : !scsi_ds_sig;
+`else
+    assign A4092SCSI_DS_n = (mybus) ? 1'bz : !scsi_ds_sig;
+    assign A4770SCSI_DS_n = 1'bz;
+`endif
 
     // DS_n is output to cardinternal bus when MASTER_n is active (low)
     assign DS_n = MASTER_n ? 4'bZZZZ : ds_n_sig;
@@ -229,6 +234,7 @@ module A4092 (
     assign D[31:28] = (config_cycle && READ) ? configdata_out : 4'bZZZZ;
     assign D[27:8] = {20{1'bZ}};
 `endif
+
 `ifdef USE_DIP_SWITCH
     assign D[7:0] = intvector_read ? intdata_out : {8{1'bZ}};
 `else
@@ -297,11 +303,14 @@ module A4092 (
        	.cfgout (cfgout),
         .config_cycle (config_cycle),
        	.dtack (config_dtack),
-       	.card_cycle (card_cycle)
+       	.card_cycle (card_cycle),
+        .mfg_id (mfg_id),
+        .prod_id (prod_id),
+        .serial(serial),
+        .romvec (romvec)
     );
 
 	dmaarbiter DMA_ARBITER (
-        .test (test),
         .clk7m (C7M),
         .clk (CLK),
         .IORST_n (IORST_n),
@@ -321,9 +330,8 @@ module A4092 (
         .IORST_n (IORST_n),
         .SLAVE_n (SLAVE_n),
         .mybus (mybus),
-        .MASTER_n (MASTER_n),
         .SCSI_AS_n (SCSI_AS_n),
-        .SCSI_DS_n (SCSI_DS_n),
+        .SCSI_STERM_n (SCSI_STERM_n),
         .READ (READ),
         .Z_FCS_n (Z_FCS_n),
         .DTACK_n (DTACK_n),
@@ -339,13 +347,12 @@ module A4092 (
 `ifdef USE_SPIROM
 	spirom SPI_ROM (
         .clk (CLK_50M),
-//        .clk (CLK),
         .IORST_n (IORST_n),
         .romcycle (rom_cycle),
-`ifdef A22_21_MISSING
-        .addr ({&A[20:3], &A[20:3], A[20:2]}),
-`else
+`ifdef A4770
         .addr (A[22:2]),
+`else
+        .addr ({&A[20:6], &A[20:6], A[20:2]}),
 `endif
         .DOE (DOE),
         .DS_n (DS_n),

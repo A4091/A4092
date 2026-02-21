@@ -21,16 +21,12 @@ module autoconfig (
     output reg cfgout = 0,
     output reg config_cycle = 0,
     output reg dtack = 0,
-    output reg card_cycle = 0
+    output reg card_cycle = 0,
+    input [15:0] mfg_id,
+    input [7:0] prod_id,
+    input [31:0] serial,
+    input [15:0] romvec
 );
-
-	// ############################################################
-    localparam mfg_id = 16'd514;
-    localparam prod_id = 8'd84;
-    localparam serial = 32'd14;
-    localparam romvec = 16'd512;
-//    localparam romvec = 16'd0;
-	// ############################################################
 
     reg configured_sig = 0;
     reg shutup_sig = 0;

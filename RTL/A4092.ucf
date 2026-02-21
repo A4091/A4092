@@ -31,7 +31,7 @@ NET "CLK_50M"     LOC = "P30";
 NET "CLK_50M" TNM_NET = "clk";
 TIMESPEC "TS_clk" = PERIOD "clk" 20 ns HIGH 50%;
 NET "SCSI_AS_n"   LOC = "P31";
-NET "SCSI_DS_n"   LOC = "P32";
+NET "A4092SCSI_DS_n"   LOC = "P32";
 NET "SPI_CLK"     LOC = "P33";
 NET "SPI_MOSI"    LOC = "P34";
 NET "SPI_MISO"    LOC = "P35";
@@ -46,14 +46,13 @@ NET "READ"        LOC = "P41";
 # P42 - VCCINT
 NET "SIZ<0>"      LOC = "P43";
 NET "SIZ<1>"      LOC = "P44";
-# P45 - NC
+NET "A4770SCSI_DS_n"   LOC = "P45";
 # P46 - NC
 # P47 - GND
 NET "MTCR_n"      LOC = "P48";
 NET "SID_n"       LOC = "P49";
 NET "DIP_EXT_TERM" LOC = "P50";
 # P51 - NC
-NET "test"        LOC = "P52";
 # P52 - NC
 # P53 - NC
 # P54 - NC

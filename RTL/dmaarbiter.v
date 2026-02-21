@@ -5,7 +5,6 @@
  *
  **********************************************************************************/
 module dmaarbiter (
-    output test,
     input clk7m,
     input clk,
     input IORST_n,
@@ -20,22 +19,17 @@ module dmaarbiter (
     output reg EBR_n = 1
 );
 
-    assign test = !SBG_n;
-
     reg RCHNG7 = 0;
     reg RCHNG25 = 0;
     reg REGED7 = 0;
     reg REGED25 = 0;
 
+    // generate one SBG_n per SBR_n
     always @(*) begin
-        if (!IORST_n) begin
+        if (!IORST_n || (SBR_n && !MASTER_n)) begin
             SBG_n <= 1;
-        end else begin
-            if (!SBR_n && MASTER_n && !EBG_n && REGED7 && !RCHNG7) begin
-                SBG_n <= 0;
-            end else if (SBR_n && !MASTER_n) begin
-                SBG_n <= 1;
-            end
+        end else if (!SBR_n && MASTER_n && !EBG_n && REGED7 && !RCHNG7) begin
+            SBG_n <= 0;
         end
     end
 
@@ -58,6 +52,9 @@ module dmaarbiter (
         end
     end
 
+    // generate regchange sync to 25MHz BCLK
+    // use SC0 as SNOOP bit to start Busrequest 2 BCLK early
+    // use SC0 also to hold Bus if FIFO ist not empty when SBR_n get inactive
     always @(negedge IORST_n, posedge clk) begin
         if (!IORST_n) begin
             RCHNG25 <= 0;
